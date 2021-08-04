@@ -43,7 +43,14 @@ class RangeValidator{
     return this._to;
   }
 
-  
+
+  getterRange(){
+    const array = [];
+    for(let i=0; i<= this._to - this._from; i++){
+      array[i] = i + this._from; 
+    }
+    return array;
+  }
 }
 
 const range1 = new RangeValidator(1, 10)
