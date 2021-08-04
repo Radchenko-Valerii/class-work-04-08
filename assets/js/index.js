@@ -29,9 +29,11 @@ class RangeValidator{
 
   set to(newTo){
     if(typeof newTo !== 'number'){
-      return new TypeError('value of "to" must be "string" type')
+      return new TypeError('value of "from" must be "string" type')
     }
     if(newTo < this._from){
+      throw new RangeError('value of "to" must be bigger, then "from"')
+    } else {
       this._to = newTo
     }
     return this._to
@@ -41,6 +43,7 @@ class RangeValidator{
     return this._to;
   }
 
+  
 }
 
 const range1 = new RangeValidator(1, 10)
