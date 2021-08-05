@@ -1,7 +1,7 @@
 class RangeValidator {
   constructor(from, to) {
     if (typeof (from && to) !== "number") {
-      return new TypeError('value of "to" and "from" must be "string" type');
+      return new TypeError('value of "to" and "from" must be "number" type');
     }
     if (from < to) {
       this._from = from;
@@ -15,7 +15,7 @@ class RangeValidator {
 
   set from(newFrom) {
     if (typeof newFrom !== "number" || isNaN(newFrom)) {
-      return new TypeError('value of "from" must be "string" type');
+      return new TypeError('value of "from" must be "number" type');
     }
     if (newFrom > this._to) {
       throw new RangeError('value of "to" must be bigger, then "from"');
@@ -31,7 +31,7 @@ class RangeValidator {
 
   set to(newTo) {
     if (typeof newTo !== "number" || isNaN(newTo)) {
-      return new TypeError('value of "from" must be "string" type');
+      return new TypeError('value of "to" must be "number" type');
     }
     if (newTo < this._from) {
       throw new RangeError('value of "to" must be bigger, then "from"');
