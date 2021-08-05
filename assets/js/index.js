@@ -9,6 +9,8 @@ class RangeValidator{
     } else {
       return new RangeError('value of "to" must be bigger, then "from"')
     }
+
+    this.rangeArray = this.getterRange();
   }
 
   set from(newFrom){
@@ -51,6 +53,17 @@ class RangeValidator{
     }
     return array;
   }
+
+  
+  validate(value){
+    if(this.rangeArray.some(array => value === array)){
+      return value;
+    } else {
+      return new RangeError('value is not been part of range');
+    }
+  }
+  
+
 }
 
 const range1 = new RangeValidator(1, 10)
