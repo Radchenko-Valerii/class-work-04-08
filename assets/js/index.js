@@ -52,12 +52,20 @@ class RangeValidator {
   }
 
   validate(value) {
-    if (this.getterRange().some((array) => value === array)) {
+    if (this.getterRange().includes(value)) {
       return value;
     } else {
       return new RangeError("value is not been part of range");
     }
   }
+
+  // validate(value) {
+  //   if (this.getterRange().some((array) => value === array)) {
+  //     return value;
+  //   } else {
+  //     return new RangeError("value is not been part of range");
+  //   }
+  // }
 }
 
 const range1 = new RangeValidator(1, 10);
