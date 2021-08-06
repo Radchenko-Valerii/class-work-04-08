@@ -1,6 +1,6 @@
 class RangeValidator {
   constructor(from, to) {
-    if (typeof (from && to) !== "number") {
+    if (typeof (from + to) !== "number" || isNaN(from + to)) {
       return new TypeError('value of "to" and "from" must be "number" type');
     }
     if (from < to) {
