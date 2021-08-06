@@ -51,6 +51,8 @@ class RangeValidator {
     return array;
   }
 
+  // update 06.08
+  
   validate(value) {
     if (this.getterRange().includes(value)) {
       return value;
