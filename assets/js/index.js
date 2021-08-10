@@ -43,31 +43,18 @@ class RangeValidator {
     return this._to;
   }
 
-  getterRange() {
-    const array = [];
-    for (let i = 0; i <= this._to - this._from; i++) {
-      array[i] = i + this._from;
-    }
-    return array;
+  get range() {
+    return [this._from, this._to];
   }
 
-  // update 06.08
   
   validate(value) {
-    if (this.getterRange().includes(value)) {
-      return value;
+    if(value>=this._from && value<=this._to){
+      return value
     } else {
-      return new RangeError("value is not been part of range");
+      throw new RangeError('Value is not been part of range')
     }
-  }
-
-  // validate(value) {
-  //   if (this.getterRange().some((array) => value === array)) {
-  //     return value;
-  //   } else {
-  //     return new RangeError("value is not been part of range");
-  //   }
-  // }
+}
 }
 
 const range1 = new RangeValidator(1, 10);
